@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TabHost;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -36,6 +37,16 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		TabHost tabHost = (TabHost) findViewById(R.id.tabhost);
+		tabHost.setup();
+		tabHost.addTab(tabHost.newTabSpec("tab1")
+				.setIndicator("查询流程", getResources().getDrawable(R.drawable.ic_launcher)).setContent(R.id.view1));
+		tabHost.addTab(tabHost.newTabSpec("tab2")
+				.setIndicator("信息更新", getResources().getDrawable(R.drawable.ic_launcher)).setContent(R.id.view2));
+		tabHost.addTab(tabHost.newTabSpec("tab3")
+				.setIndicator("咨询专家", getResources().getDrawable(R.drawable.ic_launcher)).setContent(R.id.view3));
+		tabHost.addTab(tabHost.newTabSpec("tab4")
+				.setIndicator("记录评价", getResources().getDrawable(R.drawable.ic_launcher)).setContent(R.id.view4));
 		textView2 = (TextView) findViewById(R.id.textView2);
 		button1 = (Button) this.findViewById(R.id.button1);
 		button2 = (Button) this.findViewById(R.id.button2);
